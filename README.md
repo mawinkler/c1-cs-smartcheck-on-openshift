@@ -131,7 +131,7 @@ oc create route passthrough --service proxy --hostname smartcheck.testing
 
 Finally, add `smartcheck.testing` to the line with some other `.testing` names. Example:
 
-```
+```console
 192.168.64.2 smartcheck.testing api.crc.testing console-openshift-console.apps-crc.testing default-route-openshift-image-registry.apps-crc.testing oauth-openshift.apps-crc.testing
 ```
 
