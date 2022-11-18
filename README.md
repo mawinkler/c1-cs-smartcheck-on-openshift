@@ -232,6 +232,12 @@ helm install -n smartcheck --values overrides-smartcheck.yml smartcheck https://
 ```
 
 > Note: As of Openshift 4.10 there is an issue with NetworkPolicies and Egress. To fix that after the `helm install` run the following:
+>
+> Links:
+> - [Bugzilla](https://bugzilla.redhat.com/show_bug.cgi?id=2024880)
+> - [Errata](https://access.redhat.com/errata/RHSA-2022:0056)
+> - [Release Notes](https://docs.openshift.com/container-platform/4.10/release_notes/ocp-4-10-release-notes.html)
+> - [Assigning Egress IPs](https://docs.openshift.com/container-platform/4.10/networking/openshift_sdn/assigning-egress-ips.html)
 
 ```sh
 #!/bin/bash
@@ -243,7 +249,7 @@ EOF
 
 POLS=$(oc get networkpolicy -o json|jq -r '.items[].metadata.name')
 for pol in $POLS; do kubectl patch networkpolicy $pol --patch-file networkpolicy-patch.yaml ;done;
-``` 
+```
 
 ## Result
 
